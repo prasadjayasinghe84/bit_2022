@@ -75,6 +75,7 @@ function tableLoad() {
             //alert(result);
         },
         'json');
+js
 
 }
 
