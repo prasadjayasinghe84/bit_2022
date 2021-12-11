@@ -13,13 +13,13 @@
                     <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">ID</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="reg_cus_id" name="reg_cus_id" readonly>
+                            <input type="text" class="form-control" id="reg_cus_id" name="reg_cus_id" readonly autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="reg_cus_name" name="reg_cus_name">
+                            <input type="text" class="form-control" id="reg_cus_name" name="reg_cus_name" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -60,7 +60,7 @@
                     <div class="mb-3 row">
 
                         <button type="button" class="btn btn-primary col-md-6" id="save">Save</button>
-                        <button type="button" class="btn btn-primary col-md-6" id="update">Update</button>
+                        <!-- <button type="button" class="btn btn-primary col-md-6" id="update">Update</button> -->
                     </div>
 
                 </form>
@@ -118,12 +118,12 @@
                 //selectRecord(value);
                 selectRecord($(this).val());
             });
-            $('#update').click(
-                    function () {
+            // $('#update').click(
+            //         function () {
 
-                        updateRecord();
-                    }
-            );
+            //             updateRecord();
+            //         }
+            // );
 
         </script>
     </body>
