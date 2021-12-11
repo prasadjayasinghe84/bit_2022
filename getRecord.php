@@ -1,7 +1,9 @@
 <?php
 
-$link = mysqli_connect('localhost', 'root', '')or die("Couldn't make connection.");
-mysqli_select_db($link, 'bit_project')or die("No DB found");
+ //$link = mysqli_connect('localhost', 'root', '')or die("Couldn't make connection.");
+ //mysqli_select_db($link, 'bit_project')or die("No DB found");
+
+include './sql/db.php';
 $id= filter_input(INPUT_POST, 'key');
 $que="SELECT  `cus_name`, `cus_nic`, `cus_dob`, `cus_tel`, `cus_gender`, `cus_mar` FROM `customers` WHERE `id`=".$id;
 
