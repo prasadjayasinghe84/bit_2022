@@ -12,6 +12,13 @@ and open the template in the editor.
     <body>
         <?php
         echo "my first";
+        
         ?>
+        <table>
+            <tr>
+                <td>dggd</td>
+            </tr>
+            <td></td>
+        </table>
     </body>
 </html>
