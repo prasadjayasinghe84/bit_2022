@@ -1,8 +1,11 @@
 <?php
 
-$link = mysqli_connect('localhost', 'root', '')or die("Couldn't make connection.");
-mysqli_select_db($link, 'bit_project')or die("No DB found");
+//$link = mysqli_connect('localhost', 'root', '')or die("Couldn't make connection.");
+//mysqli_select_db($link, 'bit_project')or die("No DB found");
+require_once '../sql/db.php';
 
+$obj=new DB;
+$link =$obj->link();
 
 if(filter_input(INPUT_POST,'action')==='save'){
     $stu_fname = filter_input(INPUT_POST,'stu_fname');
