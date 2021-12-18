@@ -4,7 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <title></title>
+       
+        <link href="css/bootstrap-icons.css" rel="stylesheet" type="text/css"/>
+          <title></title>
     </head>
     <body>
         <div class="container-fluid">
@@ -38,7 +40,7 @@
                    
                     <div class="mb-3 row">
 
-                        <button type="button" class="btn btn-primary col-md-6" id="save">Save</button>
+                        <button type="button" class="btn btn-primary col-md-6" id="save"><i class="bi bi-save"> Save</i> </button>
                         <!-- <button type="button" class="btn btn-primary col-md-6" id="update">Update</button> -->
                     </div>
 
@@ -54,7 +56,7 @@
                                 <th>First Name</th>
                                 <th>Last name</th>
                                 <th>E- Mail</th>
-                                
+                                <th>action</th>
                             </tr> 
                         </thead>
                         <tbody>
@@ -67,6 +69,7 @@
         </div>
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
+        
         <script src="js/add_student.js" type="text/javascript"></script>
 
         <script type="text/javascript">

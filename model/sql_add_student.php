@@ -41,6 +41,11 @@ if(filter_input(INPUT_POST,'action')==='save'){
     mysqli_close($link);
     
     echo json_encode($records); 
+}elseif(filter_input(INPUT_POST,'action')==='select_by_id'){
+
+
+
+
 }
 
 

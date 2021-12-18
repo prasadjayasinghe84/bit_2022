@@ -22,7 +22,7 @@ function laodTable() {
             var row = "";
             $.each(result, function (i, values) {
                 // alert(values.id);
-                row = row + "<tr><td>" + values.id + "</td><td>" + values.stu_fname+ "</td><td>" + values.stu_lname + "</td><td>"+values.stu_email+"</td></tr> ";
+                row = row + "<tr><td>" + values.id + "</td><td>" + values.stu_fname+ "</td><td>" + values.stu_lname + "</td><td>"+values.stu_email+"</td><td><button class='btn btn-success'> <i class='bi bi-eye'></i> Select </button></td></tr> ";
 
             });
             $('#stu_table tbody').html('').append(row);
