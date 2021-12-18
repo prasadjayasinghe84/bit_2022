@@ -43,6 +43,47 @@ if(filter_input(INPUT_POST,'action')==='save'){
     echo json_encode($records); 
 }elseif(filter_input(INPUT_POST,'action')==='select_by_id'){
 
+    $key=filter_input(INPUT_POST,'key');
+    $query="SELECT `id`, `stu_fname`, `stu_lname`, `stu_email` FROM `student` WHERE id=".$key;
+    $result=mysqli_query($link, $query);
+    
+    $records=array();
+    
+    while ($row=mysqli_fetch_assoc($result)) {
+        
+        $records[]=$row;
+    
+    }
+    //var_dump($records);
+    
+    
+    mysqli_free_result($result);
+    
+    mysqli_close($link);
+    
+    echo json_encode($records); 
+
+
+
+}elseif(filter_input(INPUT_POST,'action')==='update'){
+    echo 'ww';
+    $stu_id = filter_input(INPUT_POST,'stu_id');
+    $stu_fname = filter_input(INPUT_POST,'stu_fname');
+    $stu_lname = filter_input(INPUT_POST,'stu_lname');
+    $stu_email = filter_input(INPUT_POST,'stu_email');
+    
+    $query="UPDATE `students` SET `stu_fname`= '".$stu_fname."',`stu_lname`='".$stu_lname."',`stu_email`='".$stu_email."' WHERE `id`=".$stu_id ;
+    echo $query;
+    
+    $result=mysqli_query($link, $query);
+    
+   mysqli_close($link);
+    
+    
+   echo json_encode(array(array('msg'=>$result)));
+
+
+
 
 
 

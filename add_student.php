@@ -92,10 +92,10 @@
 //                      
 //                    }
 //            );
-            $(document).on('click', 'button.btn_edit', function () {
-                // var value=$(this).val();
-                //selectRecord(value);
-                selectRecord($(this).val());
+            $(document).on('click', 'button.btn_select', function () {
+                var value=$(this).val();
+            
+               selectRecord(value);
             });
             // $('#update').click(
             //         function () {
