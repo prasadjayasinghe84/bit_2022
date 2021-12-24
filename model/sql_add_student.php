@@ -2,6 +2,7 @@
 
 //$link = mysqli_connect('localhost', 'root', '')or die("Couldn't make connection.");
 //mysqli_select_db($link, 'bit_project')or die("No DB found");
+
 require_once '../sql/db.php';
 
 $obj=new DB;
@@ -12,18 +13,19 @@ if(filter_input(INPUT_POST,'action')==='save'){
     $stu_lname = filter_input(INPUT_POST,'stu_lname');
     $stu_email = filter_input(INPUT_POST,'stu_email');
 
-    $que="INSERT INTO `student`( `stu_fname`, `stu_lname`, `stu_email`) VALUES ('$stu_fname','$stu_lname','$stu_email')";
+    $que="INSERT INTO `students`( `stu_fname`, `stu_lname`, `stu_email`) VALUES ('$stu_fname','$stu_lname','$stu_email')";
 
-    echo $que;
+   
 
     $result=mysqli_query($link, $que);
 
 
 
     mysqli_close($link);
+    echo json_encode(array(array('msg'=>$result)));
 
 }elseif(filter_input(INPUT_POST,'action')==='select'){
-    $query="SELECT `id`, `stu_fname`, `stu_lname`, `stu_email` FROM `student`";
+    $query="SELECT `id`, `stu_fname`, `stu_lname`, `stu_email` FROM `students`";
     $result=mysqli_query($link, $query);
     
     $records=array();
@@ -44,7 +46,7 @@ if(filter_input(INPUT_POST,'action')==='save'){
 }elseif(filter_input(INPUT_POST,'action')==='select_by_id'){
 
     $key=filter_input(INPUT_POST,'key');
-    $query="SELECT `id`, `stu_fname`, `stu_lname`, `stu_email` FROM `student` WHERE id=".$key;
+    $query="SELECT `id`, `stu_fname`, `stu_lname`, `stu_email` FROM `students` WHERE id=".$key;
     $result=mysqli_query($link, $query);
     
     $records=array();
@@ -66,14 +68,14 @@ if(filter_input(INPUT_POST,'action')==='save'){
 
 
 }elseif(filter_input(INPUT_POST,'action')==='update'){
-    echo 'ww';
+  
     $stu_id = filter_input(INPUT_POST,'stu_id');
     $stu_fname = filter_input(INPUT_POST,'stu_fname');
     $stu_lname = filter_input(INPUT_POST,'stu_lname');
     $stu_email = filter_input(INPUT_POST,'stu_email');
     
     $query="UPDATE `students` SET `stu_fname`= '".$stu_fname."',`stu_lname`='".$stu_lname."',`stu_email`='".$stu_email."' WHERE `id`=".$stu_id ;
-    echo $query;
+   
     
     $result=mysqli_query($link, $query);
     
@@ -86,6 +88,17 @@ if(filter_input(INPUT_POST,'action')==='save'){
 
 
 
+
+}elseif(filter_input(INPUT_POST,'action')==='delete'){
+    $stu_id = filter_input(INPUT_POST,'stu_id');
+
+    $query=" DELETE FROM `students` WHERE `id`=". $stu_id ;
+    $result=mysqli_query($link, $query);
+    
+    mysqli_close($link);
+     
+     
+    echo json_encode(array(array('msg'=>$result)));
 
 }
 

@@ -11,17 +11,34 @@ function save() {
 
         $.post('model/sql_add_student.php',
             { action: 'save', stu_fname: stu_fname, stu_lname: stu_lname, stu_email: stu_email },
-            function (e) { },
+            function (e) {
+                //Swal.fire('Any fool can use a computer');
+                alertify.alert('Student managment System', 'Successfuly save!');
+                clearText();
+                laodTable();
+            },
             'json');
 
 
 
     } else {
-            
-        $.post('model/sql_add_student.php', { action: 'update', stu_id:stu_id, stu_fname: stu_fname, stu_lname: stu_lname, stu_email: stu_email }, function (e) {
+
+        alertify.confirm('Confirm Title', 'Do you want to save changes?', function () {
+            $.post('model/sql_add_student.php', { action: 'update', stu_id: stu_id, stu_fname: stu_fname, stu_lname: stu_lname, stu_email: stu_email }, function (e) {
+                alertify.success('Ok');
+                clearText();
+                laodTable();
+
+            }, 'json');
 
 
-        }, 'json');
+           
+        }
+            , function () { 
+                clearText();
+                alertify.error('Cancel') });
+
+
 
     }
 
@@ -36,7 +53,7 @@ function laodTable() {
             var row = "";
             $.each(result, function (i, values) {
                 // alert(values.id);
-                row = row + "<tr><td>" + values.id + "</td><td>" + values.stu_fname + "</td><td>" + values.stu_lname + "</td><td>" + values.stu_email + "</td><td><button class='btn btn-success btn_select' value='" + values.id + "'> <i class='bi bi-eye'></i> Select </button></td></tr> ";
+                row = row + "<tr><td>" + values.id + "</td><td>" + values.stu_fname + "</td><td>" + values.stu_lname + "</td><td>" + values.stu_email + "</td><td><button class='btn btn-success btn_select' value='" + values.id + "'> <i class='bi bi-eye'></i> Select </button> <button class='btn btn-danger btn_delete' value='" + values.id + "'> <i class='bi bi-trash'></i> Delete </button></td></tr> ";
 
             });
             $('#stu_table tbody').html('').append(row);
@@ -64,5 +81,32 @@ function selectRecord(data) {
 
 
         }, 'json');
+
+}
+
+function clearText(){
+    $('#add_stu_id').val('');
+    $('#add_first_name').val('');
+    $('#add_last_name').val('');
+    $('#stu_email').val('');
+
+
+}
+
+function deleteRecord(id){
+    alertify.confirm('Confirm Title', 'Are sure you want to delete this record', function()
+    { 
+        $.post('model/sql_add_student.php',{action: 'delete',stu_id:id},function(e){
+            alertify.success('Ok');
+            laodTable();
+        },'json');
+        
+        
+        }
+    , function(){ alertify.error('Cancel')});
+
+
+
+
 
 }

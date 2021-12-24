@@ -4,8 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-       
         <link href="css/bootstrap-icons.css" rel="stylesheet" type="text/css"/>
+        <link href="css/alertify.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
           <title></title>
     </head>
     <body>
@@ -69,9 +70,9 @@
         </div>
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
-        
+        <script src="js/alertify.js" type="text/javascript"></script>
         <script src="js/add_student.js" type="text/javascript"></script>
-
+       
         <script type="text/javascript">
             //alert("kskds");
 
@@ -86,47 +87,21 @@
                         save();
                     }
             );
-//            $('.btn_edit').click(
-//                    function () {
-//                       
-//                      
-//                    }
-//            );
+
             $(document).on('click', 'button.btn_select', function () {
                 var value=$(this).val();
             
                selectRecord(value);
             });
-            // $('#update').click(
-            //         function () {
-
-            //             updateRecord();
-            //         }
-            // );
+            $(document).on('click', 'button.btn_delete', function () {
+                var value=$(this).val();
+                deleteRecord(value);
+              
+            });
 
         </script>
     </body>
     <!--modal-->
 
-    <div class="modal" tabindex="-1" role="dialog" id="myModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">SMS</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-success" role="alert">
-                        This is a success alert—check it out!
-                    </div>
-                </div>
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </html>
