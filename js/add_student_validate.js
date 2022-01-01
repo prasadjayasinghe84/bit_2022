@@ -1,17 +1,37 @@
 function save() {
 
     var stu_id = $('#add_stu_id').val();
-    var stu_fname = $('#add_first_name').val();
-    var stu_lname = $('#add_last_name').val();
-    var stu_email = $('#stu_email').val();
-
-    if (stu_fname == '') {
-        alertify.success('First name is empty');
+    var stu_fname = $.trim($('#add_first_name').val());
+    var stu_lname =  $.trim($('#add_last_name').val());
+    var stu_email =  $.trim($('#stu_email').val());
+    var stu_tel_no = $.trim( $('#stu_tel_no').val());
+    var stu_nic = $.trim( $('#stu_nic').val());
+    if (!(validateName(stu_fname))) {
+        
     } else if (stu_lname == '') {
         alertify.success('Last name is empty');
     } else if (stu_email == '') {
-        alertify.success('email is empty');
-    } else {
+
+        alertify.error('email is empty');
+
+
+
+
+    } else if (!(validateMail(stu_email))) {
+        alertify.error('Not a valied mail');
+
+    } else if (!(validateTelNo(stu_tel_no))) {
+
+        alertify.error('not a valied tel no ');
+
+
+
+    } else if(!(validateNic(stu_nic))){
+        alertify.error('not a valied nic ');
+    }
+    
+    
+    else{
 
         if (stu_id == '') {
 
@@ -115,6 +135,54 @@ function deleteRecord(id) {
         , function () { alertify.error('Cancel') });
 
 
+
+
+
+}
+
+function validateMail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateTelNo(tel) {
+    if (/^[\+]?[0-9]{3}[-]?[0-9]{7}$/im.test(tel)) {
+        return true;
+    } else {
+        return false;
+    }
+
+
+
+
+}
+
+function validateNic(nic) {
+    if (/^[0-9]{9}[v|V|X|x]$/.test(nic)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function validateName(sname) {
+    if(sname==''){
+        alertify.success('First name is empty'); 
+        return false;
+    }else{
+        if (/^[a-zA-Z ]+$/.test(sname)) {
+            return true;
+        } else {
+            alertify.error('Not a valied name'); 
+            return false;
+        }
+
+    }
+    
 
 
 

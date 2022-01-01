@@ -32,12 +32,23 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">Tel No</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="stu_tel_no" name="stu_tel_no" placeholder="0711234567">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="stu_email" name="stu_email">
                         </div>
                     </div>
-                    
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">NIC</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="stu_nic" name="stu_nic" placeholder="0711234567">
+                        </div>
+                    </div>
                    
                     <div class="mb-3 row">
 
