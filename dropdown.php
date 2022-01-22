@@ -14,7 +14,7 @@
   <div class="mb-3 row">
         <label for="" class="col-sm-2 col-form-label">Select Gn</label>
         <div class="col-sm-10">
-            <select class="form-select form-select-sm select" aria-label=".form-select-sm example">
+            <select class="form-select form-select-sm " aria-label=".form-select-sm example">
             <option >Open this select menu</option>
             <option value="1" selected>One</option>
             <option value="2">Two</option>
