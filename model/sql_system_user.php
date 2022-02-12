@@ -66,4 +66,15 @@ if(filter_input(INPUT_POST,'action')==='insert'){
    
     mysqli_close($link);
 
+}elseif(filter_input(INPUT_POST,'action')==='delete'){
+    $id=filter_input(INPUT_POST,'id');
+    $query="DELETE FROM `system_user` WHERE `id`=".$id;
+    $result=mysqli_query($link, $query);
+    if($result){
+        echo json_encode(array(array('msg'=>'Remove user')));
+    }
+   
+    mysqli_close($link);
+
+
 }

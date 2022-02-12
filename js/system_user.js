@@ -55,10 +55,10 @@ function loadTable() {
                     user_level_name = 'Viewer'
                 }
                 if (values.statues === '1') {
-                    row = row + "<tr><td>" + values.id + "</td><td>" + values.first_name + "</td><td>" + values.user_name + "</td><td>" + user_level_name + "</td><td><button class='btn btn-warning inactive_user' value='" + values.id + "' >Inactive Me</button></td><td><button class='btn btn-danger btn_delete' value='" + values.id + "'> <i class='bi bi-trash'></i> Delete </button></td></tr> ";
+                    row = row + "<tr><td>" + values.id + "</td><td>" + values.first_name + "</td><td>" + values.user_name + "</td><td>" + user_level_name + "</td><td><button class='btn btn-warning inactive_user' value='" + values.id + "' >Inactive Me</button></td><td><button class='btn btn-danger btn_delete_user' value='" + values.id + "'> <i class='bi bi-trash'></i> Delete </button></td></tr> ";
 
                 } else {
-                    row = row + "<tr><td>" + values.id + "</td><td>" + values.first_name + "</td><td>" + values.user_name + "</td><td>" + user_level_name + "</td><td><button class='btn btn-info active_user' value='" + values.id + "' >Active Me</button></td><td><button class='btn btn-danger btn_delete' value='" + values.id + "'> <i class='bi bi-trash'></i> Delete </button></td></tr> ";
+                    row = row + "<tr><td>" + values.id + "</td><td>" + values.first_name + "</td><td>" + values.user_name + "</td><td>" + user_level_name + "</td><td><button class='btn btn-info active_user' value='" + values.id + "' >Active Me</button></td><td><button class='btn btn-danger btn_delete_user' value='" + values.id + "'> <i class='bi bi-trash'></i> Delete </button></td></tr> ";
 
                 }
 
@@ -92,6 +92,21 @@ $(document).on('click', 'button.inactive_user', function () {
 $(document).on('click', 'button.active_user', function () {
     var value = $(this).val();
     $.post('model/sql_system_user.php', { action: 'active_user', id: value },
+        function (result) {
+            //alert(e);
+
+            $.each(result, function (index, msgData) {
+
+                alertify.success(msgData.msg);
+
+            });
+            loadTable();
+        }, 'json');
+
+});
+$(document).on('click', 'button.btn_delete_user', function () {
+    var value = $(this).val();
+    $.post('model/sql_system_user.php', { action: 'delete', id: value },
         function (result) {
             //alert(e);
 

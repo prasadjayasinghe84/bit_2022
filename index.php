@@ -63,11 +63,14 @@
 </body>
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
+<script src="js/system_user.js" type="text/javascript"></script>
 <script>
 $('#login').on('submit', function(e) {
 
     e.preventDefault();
-    alert('ccc');
+
+
+    login();
 });
 </script>
 
