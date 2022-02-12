@@ -33,7 +33,7 @@
     </body>
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="js/dataTables.min.js" type="text/javascript"></script>
         <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js" type="text/javascript"></script>
         <script src="js/datatable.js" type="text/javascript"></script>
        
