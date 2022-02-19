@@ -1,3 +1,30 @@
+<?php
+session_start();
+if(isset($_SESSION['agent'])){
+ if(isset($_SESSION['server_ip'])){
+     if(isset($_SESSION['level'])){
+        if($_SESSION['level']==='1'){
+            header("Location:dashboard_s_admin.php");
+        }elseif($_SESSION['level']==='2'){
+            header("Location:dashboard_admin.php");
+        }elseif($_SESSION['level']==='3'){
+            
+        }elseif($_SESSION['level']==='4'){
+            
+        }
+     }
+ }
+
+
+}
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -7,6 +34,8 @@
     <title></title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/alertify.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -63,6 +92,7 @@
 </body>
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
+<script src="js/alertify.js" type="text/javascript"></script>
 <script src="js/system_user.js" type="text/javascript"></script>
 <script>
 $('#login').on('submit', function(e) {

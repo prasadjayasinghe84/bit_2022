@@ -119,3 +119,46 @@ $(document).on('click', 'button.btn_delete_user', function () {
         }, 'json');
 
 });
+
+function login() {
+
+    var user_name = $('#staticEmail').val();
+    var password = $('#inputPassword').val();
+
+    $.post('control/user_login.php', { user:'login', user_name: user_name, password: password }, function (result) {
+        $.each(result, function (index, msgData) {
+
+            if (msgData.msg === '1') {
+                if (msgData.level === '1') {
+                    /// window.location.replace('add_student_validate.php');
+
+                    window.location.replace('dashboard_s_admin.php');
+
+                } else if (msgData.level === '2') {
+                    window.location.replace('dashboard_admin.php');
+
+                } else if (msgData.level === '3') {
+                    window.location.replace('add_student_validate.php');
+                }
+
+
+            } else {
+                alertify.success(msgData.msg);
+            }
+
+        });
+    }, 'json');
+
+}
+
+function logOut() {
+    alert('nknck,xndc');
+
+    $.post('control/user_login.php', { user: 'logout' }, function (result) {
+
+
+        window.location.replace('index.php');
+
+
+    }, 'json');
+}
