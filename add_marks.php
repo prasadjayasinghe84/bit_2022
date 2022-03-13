@@ -48,13 +48,14 @@
                    </thead>
                    <tbody></tbody>
                </table>
-
+               <button class='btn btn-primary' id='save_marks'>SAVE</button>
            </div>
         </div>
 
     </div>
     <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/add_marks.js" type="text/javascript"></script>
         <script>
             $('#add_mark').click(function(e){
                 var row="<tr><td>"+$('#id').val()+"</td><td>"+$('#stu_name').val()+"</td><td>"+$('#stu_mark').val()+"</td><td><button class='btn btn-danger remove_row' type='button' id=''>X</button></td></tr>";
@@ -66,6 +67,10 @@
                 return false;
 
             });
+
+            $('#save_marks').click(function(e){
+                addStudentMarks();
+            })
 
         </script>
 </body>
