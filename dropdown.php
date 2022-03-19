@@ -51,12 +51,17 @@
         <script src="js/dropdown.js" type="text/javascript"></script>
         <script>
             $(".chosen-select").chosen();
+
+
             $(window).on('load', function () {
 
             
             comboloadDSD();
 
             });
+
+
+            
             $('#combo_dsd').change(function(){
                
 
